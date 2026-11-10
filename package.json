@@ -1,0 +1,30 @@
+{
+  "name": "napdate",
+  "version": "1.0.0",
+  "description": "Update top-level npm dependencies to their latest pinned versions",
+  "type": "module",
+  "bin": {
+    "napdate": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test:unit": "node -e \"require('node:fs').mkdirSync('coverage', {recursive:true})\" && node --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 --test-coverage-include='dist/*.js' --test-reporter=spec --test-reporter-destination=stdout --test-reporter=lcov --test-reporter-destination=coverage/lcov.info --test test/unit/*.test.js",
+    "test:e2e": "node --test test/e2e/*.test.js",
+    "test": "npm run build && npm run test:unit && npm run test:e2e"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ivan-nosar/napdate.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2"
+  }
+}
