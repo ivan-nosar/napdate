@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test:unit": "node --experimental-test-coverage --test-coverage-include='dist/*.js' --test-coverage-exclude='dist/cli.js' --test test/unit/*.test.js",
+    "test:unit": "node --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 --test-coverage-include='dist/*.js' --test test/unit/*.test.js",
     "test:e2e": "node --test test/e2e/*.test.js",
     "test": "npm run build && npm run test:unit && npm run test:e2e"
   },
